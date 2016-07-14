@@ -1,20 +1,12 @@
 import React from 'react'
-import {browserHistory, Router, Route, Redirect} from 'react-router'
-
+import {Route} from 'react-router'
 import Container from './Container'
-import IndexPage from './indexPage/IndexPage'
 
-const Home = React.createClass({
-  render: function() {
-    return (<div>Hello world</div>)
-  }
-})
+export const makeMainRoutes = () => {
 
-export const makeRoutes = () => (
-    <Router>
-      <Route path="/" component={Home} />
-      <Redirect from="*" to="/" />
-    </Router>
+  return (
+    <Route path="/" component={Container} />
   )
+}
 
-export default makeRoutes
+export default makeMainRoutes;
