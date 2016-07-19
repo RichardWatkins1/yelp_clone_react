@@ -22,31 +22,22 @@ export class Container extends React.Component {
 })
   }
   render() {
-    let children = null;
-    if (this.props.children) {
-      // We have children in the Container component
-      children = React.cloneElement(
-        this.props.children,
-        {
-          google: this.props.google,
-          places: this.state.places,
-          loaded: this.props.loaded
-        });
-    }
-    return
-    <Map
-    visible={false}
-    className={styles.wrapper}>
-    <Header />
-    <Sidebar />
-    <div className={styles.content}>
-  {/* Setting children routes to be rendered*/}
-  {children}
-  </div>
-  )
+    return (
+      <div>
+        <Map
+          visible={false}
+          className={styles.wrapper}>
+          <Header />
+          <Sidebar />
+          <div className={styles.content}>
+            {/* Setting children routes to be rendered*/}
+            {this.props.children}
+          </div>
+        </Map>
+      </div>
+    )
+  }
 }
-}
-
 
 
 export default GoogleApiWrapper({
